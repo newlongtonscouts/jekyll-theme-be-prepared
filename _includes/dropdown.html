@@ -5,7 +5,7 @@
 	<button class = "DropdownButton"><b>{{ include.name }}</b></button>
 	<div class = "DropdownContent">
 		{% for option in options %}
-			<a href = "{{ links[forloop.index] }}">{{ option }}</a>
+			<a href = "{{ links[forloop.index - 1] }}">{{ option }}</a>
 		{% endfor %}
 	</div>
 </div>
