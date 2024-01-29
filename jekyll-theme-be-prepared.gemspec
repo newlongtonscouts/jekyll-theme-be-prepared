@@ -4,11 +4,11 @@ Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-be-prepared"
   spec.version       = "0.1.0"
   spec.authors       = ["Alex Paterson"]
-  spec.email         = ["a.paterson372@gmail.com"]
+  spec.email         = ["admin@newlongtonscouts.com]
 
-  spec.summary       = "TODO: Write a short summary, because Rubygems requires one."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary       = "A Jekyll theme for UK-based Scout groups."
+  spec.homepage      = "https://github.com/newlongtonscouts/jekyll-theme-be-prepared"
+  spec.license       = "Nonstandard"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
 
