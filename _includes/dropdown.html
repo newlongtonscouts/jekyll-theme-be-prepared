@@ -1,11 +1,11 @@
 {% assign options = include.options | split: ", " %}
-{% assign links = {{ include.links }} | split: ", " %}
+{% assign links = include.links | split: ", " %}
 
 <div class = "Dropdown">
 	<button class = "DropdownButton"><b>{{ include.name }}</b></button>
 	<div class = "DropdownContent">
 		{% for option in options %}
-			<a href = "">{{ option }}</a>
+			<a href = "{{ links[forloop.index] }}">{{ option }}</a>
 		{% endfor %}
 	</div>
 </div>
