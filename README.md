@@ -2,7 +2,7 @@
 
 TODO: Write a better description.
 
-## Installation
+## Gem Version Installation
 
 Add this line to your Jekyll site's `Gemfile`:
 
