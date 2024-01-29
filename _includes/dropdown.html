@@ -4,6 +4,7 @@
 <div class = "Dropdown">
 	<button class = "DropdownButton"><b>{{ include.name }}</b></button>
 	<div class = "DropdownContent">
+		{{ options[0] }}
 		{% for option in options %}
 			<a href = "">{{ option }}</a>
 		{% endfor %}
