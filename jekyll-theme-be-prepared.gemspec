@@ -2,8 +2,8 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-be-prepared"
-  spec.version       = "0.1.0"
-  spec.authors       = ["Alex Paterson"]
+  spec.version       = "1.0.0"
+  spec.authors       = ["Alex Paterson @ 1st New Longton Scouts"]
   spec.email         = ["admin@newlongtonscouts.com"]
 
   spec.summary       = "A Jekyll theme for UK-based Scout groups."
