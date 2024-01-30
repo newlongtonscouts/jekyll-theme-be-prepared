@@ -51,7 +51,7 @@ stylesheet: be-prepared.css
 This pulls in the stock stylesheet from the be-prepared theme. You can change it to be any stylesheet located in `/assets/css` by changing the stylesheet variable in `_config.yml`, but make sure it includes the following line:
 
 ```css
-@import /assets/css/be-prepared.css
+@import "/assets/css/be-prepared.css"
 ```
 
 Each page on your site needs to include the following front matter:
