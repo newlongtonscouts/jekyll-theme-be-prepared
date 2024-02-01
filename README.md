@@ -81,4 +81,4 @@ authors: Your Name Here
 colour: A hex colour value for the header and footer. The Scout brand purple is 7413dc.
 ```
 
-With these steps complete, you should have the start of a usable site, although features like the default socials bar will need configuring too.
+With these steps complete, you should have the start of a usable site, although features like the default socials bar will need configuring in ```_config.yml``` too.
