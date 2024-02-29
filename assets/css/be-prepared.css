@@ -291,6 +291,11 @@ input
 	font-size: 1em;
 }
 
+select
+{
+	font-size: 1em;
+}
+
 .SearchButton
 {
 	border: none;
