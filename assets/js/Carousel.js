@@ -54,9 +54,9 @@ async function MakeCarousel ()
 		captions.push (jsonObject [i].caption);
 	}
 	
-	if (document.currentScript.getAttribute ("auto") != null)
+	if (document.currentScript.getAttribute ("auto-scroll") != null)
 	{
-		if (document.currentScript.getAttribute ("auto") == false)
+		if (document.currentScript.getAttribute ("auto-scroll") == false)
 		{
 			GoLeft (false); // No auto-scroll.
 			return;
