@@ -54,14 +54,16 @@ async function MakeCarousel ()
 		captions.push (jsonObject [i].caption);
 	}
 	
-	if (document.currentScript.getAttribute ("auto") != null && document.currentScript.getAttribute ("auto") == false)
+	if (document.currentScript.getAttribute ("auto") != null)
 	{
-		GoLeft (false); // A hack to render the Image Carousel properly.
+		if (document.currentScript.getAttribute ("auto") == false)
+		{
+			GoLeft (false); // No auto-scroll.
+			return;
+		}
 	}
-	else // Default to old scrolling behaviour.
-	{
-		GoLeft (); // A hack to render the Image Carousel properly.
-	}
+
+	GoLeft (); // Old behaviour by default.
 }
 
 function GoLeft (auto = true)
