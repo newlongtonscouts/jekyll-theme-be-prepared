@@ -54,7 +54,7 @@ async function MakeCarousel ()
 		captions.push (jsonObject [i].caption);
 	}
 	
-	if (document.currentScript.getAttribute ("auto") == false)
+	if (document.currentScript.getAttribute ("auto") != null && document.currentScript.getAttribute ("auto") == false)
 	{
 		GoLeft (false); // A hack to render the Image Carousel properly.
 	}
