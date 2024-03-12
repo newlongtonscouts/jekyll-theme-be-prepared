@@ -1,33 +1,33 @@
----
+/*
 
-# 	*************************
-# 	* assets/js/Carousel.js *
-#	*************************
-#
-# 	Copyright 2024 1st New Longton Scouts
-#
-#	Licensed under the Apache License, Version 2.0 (the "License");
-#	you may not use this file except in compliance with the License.
-#	You may obtain a copy of the License at
-#
-#		http://www.apache.org/licenses/LICENSE-2.0
-#
-#	Unless required by applicable law or agreed to in writing, software
-#	distributed under the License is distributed on an "AS IS" BASIS,
-#	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#	See the License for the specific language governing permissions and
-#	limitations under the License.
-#
-#
-#	AUTHOR'S NOTE:
-#
-#	I initially wrote this script as part of a university project when I'd
-# 	just started learning JS. I pulled it into this project as a "quick and
-#	easy" way of including a carousel before I thought of making this
-#	publicly available.. I apologise in advance for any horrendous rookie
-#	mistakes you may find.
+ 	*************************
+ 	* assets/js/Carousel.js *
+	*************************
 
----
+ 	Copyright 2024 1st New Longton Scouts
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+
+	AUTHOR'S NOTE:
+
+	I initially wrote this script as part of a university project when I'd
+	just started learning JS. I pulled it into this project as a "quick and
+	easy" way of including a carousel before I thought of making this
+	publicly available. I apologise in advance for any horrendous rookie
+	mistakes you may find.
+
+*/
 
 var paths = [];
 var captions = [];
@@ -36,8 +36,16 @@ var time = 5000;
 
 async function MakeCarousel ()
 {
-	let response = await fetch ("assets/json/Carousel.json");
-	let jsonObject =  await response.json(); // Convert response to JSON.
+	if (document.currentScript.getAttribute ("definition") === null)
+	{
+		let response = await fetch ("assets/json/Carousel.json");
+	}
+	else
+	{
+		let response = await fetch ("assets/json/" + document.currentScript.getAttribute ("definition"));
+	}
+
+	let jsonObject =  await response.json (); // Convert response to JSON.
 	
 	var carousel = document.getElementById ("Carousel");
 
@@ -47,14 +55,19 @@ async function MakeCarousel ()
 		captions.push (jsonObject [i].caption);
 	}
 	
-	GoLeft (); // A hack to render the Image Carousel properly.
+	if (document.currentScript.getAttribute ("auto") == false)
+	{
+		GoLeft (false); // A hack to render the Image Carousel properly.
+	}
+	else // Default to old scrolling behaviour.
+	{
+		GoLeft (); // A hack to render the Image Carousel properly.
+	}
 }
 
-function GoLeft ()
+function GoLeft (auto = true)
 {
-	var link = document.getElementById ("CarouselLink"); // Reference everything.
 	var image = document.getElementById ("CarouselImage");
-	var caption = document.getElementById ("CarouselCaption");
 
 	currentIndex--;
 	
@@ -66,7 +79,25 @@ function GoLeft ()
 	image.setAttribute ("src", paths [currentIndex]);
 	image.setAttribute ("alt", captions [currentIndex]);
 	
-	setTimeout (GoLeft, time); // Scroll automatically.
+	if (auto === true)
+	{
+		setTimeout (GoLeft, time); // Scroll automatically.
+	}
+}
+
+function GoRight () // Called when the Right Arrow is pressed.
+{
+	var image = document.getElementById ("CarouselImage");
+
+	currentIndex++;
+	
+	if (currentIndex > paths.length - 1) // Wrap round.
+	{
+		currentIndex = 0;
+	}
+	
+	image.setAttribute ("src", paths [currentIndex]);
+	image.setAttribute ("alt", captions [currentIndex]);
 }
 
 MakeCarousel (); // Call the function on page load.
