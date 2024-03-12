@@ -37,8 +37,8 @@ var time = 5000;
 async function MakeCarousel ()
 {
 	var file = "Carousel.json";
-	
-	var auto = ocument.currentScript.getAttribute ("auto-scroll");
+
+	var auto = document.currentScript.getAttribute ("auto-scroll");
 
 	if (document.currentScript.getAttribute ("definition") != null)
 	{
