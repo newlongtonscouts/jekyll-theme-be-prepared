@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-be-prepared"
-  spec.version       = "1.1.0"
+  spec.version       = "1.2.0"
   spec.authors       = ["Alex Paterson @ 1st New Longton Scouts"]
   spec.email         = ["admin@newlongtonscouts.com"]
 

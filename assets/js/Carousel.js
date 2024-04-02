@@ -58,17 +58,17 @@ async function MakeCarousel ()
 	
 	if (auto != null)
 	{
-		if (auto == false)
+		if (auto == "false")
 		{
 			GoLeft (false); // No auto-scroll.
 			return;
 		}
 	}
 
-	GoLeft (); // Old behaviour by default.
+	GoLeft (true); // Old behaviour by default.
 }
 
-function GoLeft (auto = true)
+function GoLeft (auto = false)
 {
 	var image = document.getElementById ("CarouselImage");
 
